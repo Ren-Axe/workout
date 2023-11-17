@@ -1,0 +1,20 @@
+/Задача на удаление из предлоэения повторяющихся обьектов/
+function findAndDelete(str) {
+  str = str.toLowerCase();
+  const obj = {};
+  let acc = '', res = '';
+  
+  for(let i = 0; i < str.length; i++) {
+    if(str[i] !== ' ') acc += str[i];
+    
+    if(str[i] === ' ' || i === str.length - 1) {
+      if(acc && !obj[acc]) {
+       obj[acc] = 1;
+       if(res) res += ' ' + acc;
+       else res += acc;
+      }
+      acc = '';
+    }
+  }
+  return res;
+}
